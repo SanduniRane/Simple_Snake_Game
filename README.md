@@ -9,13 +9,14 @@ delay= 0.1
 score = 0
 high_score = 0
 
+# Snake title
 wn = turtle.Screen()
 wn.title("Snake game by Sanduni")
 wn.bgcolor("pink")
 wn.setup(width=600, height=600)
 wn.tracer(0)
 
-#Snake head
+# Snake head
 head= turtle.Turtle()
 head.speed(0)
 head.shape("square")
@@ -24,7 +25,7 @@ head.penup()
 head.goto(0,0)
 head.direction="stop"
 
-#Snake food
+# Snake food
 food= turtle.Turtle()
 food.speed(0)
 food.shape("circle")
@@ -44,7 +45,7 @@ pen.hideturtle()
 pen.goto(0, 260)
 pen.write("Score: 0 High Score: 0", align="center", font=("Courier", 24, "normal"))
 
-#Functions
+# Functions
 def go_up():
     if head.direction != "down":
         head.direction = "up"
@@ -78,13 +79,14 @@ def move():
         x = head.xcor()
         head.setx(x + 20)
 
-#Keyboard bindings
+# Keyboard bindings
 wn.listen()
 wn.onkeypress(go_up, "w")
 wn.onkeypress(go_down, "s")
 wn.onkeypress(go_left, "a")
 wn.onkeypress(go_right, "d")
-#Main game loop
+
+# Main game loop
 while True:
     wn.update()
 
@@ -94,7 +96,7 @@ while True:
             head.goto(0,0)
             head.direction = "stop"
 
-            #Hide the segments
+            # Hide the segments
             for segment in segments:
                 segment.goto(1000, 1000)
 
@@ -113,7 +115,7 @@ while True:
 
     # Check for a collision with the food
     if head.distance(food) < 20:
-        #Move the food to a random spot
+        # Move the food to a random spot
         x = random.randint(-290,290)
         y = random.randint(-290,290)
         food.goto(x,y)
@@ -160,7 +162,7 @@ while True:
             head.goto(0.0)
             head.direction = "stop"
 
-            #Hide the segments
+            # Hide the segments
             for segment in segments:
                 segment.goto(1000, 1000)
 
